@@ -20,7 +20,7 @@ def display_hbnb():
 
 @app.route('/c/<text>', strict_slashes=False)
 def display_c_text(text):
-    """Displays 'C ' followed by the value of the text variable"""
+    """Displays 'C ' followed by the value of the text"""
     return "C {}".format(text.replace('_', ' '))
 
 
@@ -39,18 +39,18 @@ def display_number(n):
 
 @app.route('/number_template/<int:n>', strict_slashes=False)
 def display_number_template(n):
-    """Displays a HTML page only if n is an integer"""
+    """Displays a HTML page if n is an integer"""
     return render_template('6-number_odd_or_even.html', n=n)
 
 
 @app.route('/number_odd_or_even/<int:n>', strict_slashes=False)
 def display_number_odd_or_even(n):
-    """Displays a HTML page only if n is an integer"""
+    """Displays a HTML page if n is an integer"""
     if n % 2 == 0:
-        odd_or_even = "even"
+        o_or_e = "even"
     else:
-        odd_or_even = "odd"
-    return render_template('6-number_odd_or_even.html', n=n, odd_or_even=odd_or_even)
+        o_or_e = "odd"
+    return render_template('6-number_odd_or_even.html', n=n, o_or_e=o_or_e)
 
 
 if __name__ == "__main__":
