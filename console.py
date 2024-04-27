@@ -124,6 +124,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
                 return
             new_instance = HBNBCommand.classes[argv[0]]()
+            print(argv)
             for arg in argv[1:]:
                 key = arg.split('=')[0]
                 arg = arg.split("=")[1]
@@ -140,7 +141,6 @@ class HBNBCommand(cmd.Cmd):
                     new_dict[key] = arg
             print(new_instance.id)
             storage.save()
-
 
     def help_create(self):
         """ Help information for the create method """
