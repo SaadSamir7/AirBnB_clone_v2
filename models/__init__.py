@@ -1,16 +1,17 @@
-import os
+#!/usr/bin/python3
+"""
+initialize the models package
+"""
 
-# Check the value of the environment variable
-storage_type = os.getenv('HBNB_TYPE_STORAGE')
+from os import getenv
 
-# Create an instance of the appropriate storage class based on the value
-if storage_type == 'db':
+
+storage_t = getenv("HBNB_TYPE_STORAGE")
+
+if storage_t == "db":
     from models.engine.db_storage import DBStorage
     storage = DBStorage()
-    
 else:
     from models.engine.file_storage import FileStorage
     storage = FileStorage()
-
-# Execute the reload method after instantiation
 storage.reload()
